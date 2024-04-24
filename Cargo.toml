@@ -2,7 +2,12 @@
 name = "tui-textbox"
 version = "0.1.0"
 authors = ["zchira"]
-license = "GPLv3"
+license = "GPL-3.0"
+description = "ratatui stateful widget"
+homepage = "https://github.com/zchira/tui-textbox"
+repository = "https://github.com/zchira/tui-textbox"
+readme = "README.md"
+keywords = ["ratatui", "tui", "tui-textbox", "widget"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

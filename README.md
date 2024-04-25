@@ -1,16 +1,17 @@
-# tui-textbox
+[![Crate Badge]][Crate] [![Docs Badge]][API Docs] [![License Badge]](./LICENSE)
 
-Stateful widget for [ratatui](https://github.com/ratatui-org/ratatui) rust library.
+# Tui-textbox
 
-# How to use
+Stateful widget for [ratatui](https://github.com/ratatui-org/ratatui).
+
+# Example
 
 Check `example/`.
 
 To run demo:
 
+```shell
+cargo run --example demo
 ```
-cargo run --example test
-```
 
-
-
+[demo](./tui-textbox-demo.gif)

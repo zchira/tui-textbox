@@ -4,7 +4,7 @@
 
 Stateful widget for [ratatui](https://github.com/ratatui-org/ratatui).
 
-# Example
+## Example
 
 Check `example/`.
 
@@ -15,3 +15,11 @@ cargo run --example demo
 ```
 
 ![demo](./tui-textbox-demo.gif)
+
+## Features
+
+- Stateful
+- Support moving cursor `Left` and `Right`
+- `Backspace` and `Delete` supported
+- Paste from clipboard
+

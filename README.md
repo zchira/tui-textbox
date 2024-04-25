@@ -14,4 +14,4 @@ To run demo:
 cargo run --example demo
 ```
 
-[demo](./tui-textbox-demo.gif)
+![demo](./tui-textbox-demo.gif)

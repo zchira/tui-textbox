@@ -23,3 +23,10 @@ cargo run --example demo
 - `Backspace` and `Delete` supported
 - Paste from clipboard
 
+![docsrs-styling]
+
+[Crate]: https://crates.io/crates/tui-textbox
+[Crate Badge]: https://img.shields.io/crates/v/ratatui?logo=rust&style=flat-square
+[Docs Badge]: https://img.shields.io/docsrs/ratatui?logo=rust&style=flat-square
+
+<!-- cargo-rdme end -->

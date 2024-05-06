@@ -6,6 +6,8 @@ use tui_textbox::{TextboxState, Textbox};
 
 pub struct App {
     pub textbox_state: TextboxState,
+    pub textbox2_state: TextboxState,
+    pub focused_textbox: u8
 }
 
 impl App {
@@ -14,14 +16,14 @@ impl App {
 
         let vertical_chunks = Layout::default()
             .direction(Direction::Vertical)
-            .constraints([Constraint::Length(3), Constraint::Percentage(100)])
+            .constraints([Constraint::Length(3), Constraint::Length(3), Constraint::Percentage(100)])
             .split(size);
 
-        let status_block = Block::default().borders(Borders::ALL).title(format!("Textbox demo"));
+        let block1 = Block::default().borders(Borders::ALL).title(format!("Use <TAB> to switch active textbox, <ESC> to exit demo"));
+        f.render_widget(block1, vertical_chunks[0]);
 
-        f.render_widget(status_block, vertical_chunks[0]);
-
-        let textbox = Textbox::default();
+        let textbox = Textbox::default()
+            .render_cursor(self.focused_textbox == 0);
         let textbox_rect = Rect {
             x: 1,
             y: 1,
@@ -29,13 +31,29 @@ impl App {
             height: 1,
         };
         f.render_stateful_widget(textbox, textbox_rect, &mut self.textbox_state);
+
+        let block2 = Block::default().borders(Borders::ALL);
+        f.render_widget(block2, vertical_chunks[1]);
+
+        let textbox2 = Textbox::default()
+            .fg(ratatui::style::Color::Yellow)
+            .bg(ratatui::style::Color::Green)
+            .hint_color(ratatui::style::Color::LightGreen)
+            .cursor_color(ratatui::style::Color::DarkGray)
+            .render_cursor(self.focused_textbox == 1);
+        f.render_stateful_widget(textbox2, vertical_chunks[1].inner(&ratatui::layout::Margin::new(1, 1)), &mut self.textbox2_state);
     }
 
     fn handle_events(&mut self, key: KeyEvent) -> std::io::Result<bool> {
         match (key.code, key.modifiers) {
             (KeyCode::Esc, _) => return Ok(true),
+            (KeyCode::Tab, _) => { self.focused_textbox = (self.focused_textbox + 1) % 2;  },
             (key_code, key_modifiers) => {
-                self.textbox_state.handle_events(key_code, key_modifiers);
+                match self.focused_textbox {
+                    0 => self.textbox_state.handle_events(key_code, key_modifiers),
+                    1 => self.textbox2_state.handle_events(key_code, key_modifiers),
+                    _ => {}
+                };
             }
         }
         Ok(false)
@@ -46,6 +64,8 @@ pub fn main() -> std::io::Result<()> {
 
     let mut app = App {
         textbox_state: Default::default(),
+        textbox2_state: Default::default(),
+        focused_textbox: 0
     };
 
     stdout().execute(EnterAlternateScreen)?;

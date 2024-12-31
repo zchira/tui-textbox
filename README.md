@@ -4,7 +4,7 @@
 [Crate Badge]: https://img.shields.io/crates/v/tui-textbox?logo=rust&style=flat-square
 [Crate]: https://crates.io/crates/tui-textbox
 [Docs Badge]: https://img.shields.io/docsrs/ratatui-image?logo=rust&style=flat-square
-[Docs]: https://docs.rs/tui-textbox/0.1.0/
+[Docs]: https://docs.rs/tui-textbox/
 
 # Tui-textbox
 

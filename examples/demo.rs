@@ -12,7 +12,7 @@ pub struct App {
 
 impl App {
     pub fn ui(&mut self, f: &mut Frame) {
-        let size = f.size();
+        let size = f.area();
 
         let vertical_chunks = Layout::default()
             .direction(Direction::Vertical)

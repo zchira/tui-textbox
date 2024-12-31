@@ -1,6 +1,6 @@
 [package]
 name = "tui-textbox"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["zchira"]
 license = "GPL-3.0"
 description = "ratatui stateful widget"

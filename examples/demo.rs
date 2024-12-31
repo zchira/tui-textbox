@@ -12,7 +12,7 @@ pub struct App {
 
 impl App {
     pub fn ui(&mut self, f: &mut Frame) {
-        let size = f.size();
+        let size = f.area();
 
         let vertical_chunks = Layout::default()
             .direction(Direction::Vertical)
@@ -41,7 +41,7 @@ impl App {
             .hint_color(ratatui::style::Color::LightGreen)
             .cursor_color(ratatui::style::Color::DarkGray)
             .render_cursor(self.focused_textbox == 1);
-        f.render_stateful_widget(textbox2, vertical_chunks[1].inner(&ratatui::layout::Margin::new(1, 1)), &mut self.textbox2_state);
+        f.render_stateful_widget(textbox2, vertical_chunks[1].inner(ratatui::layout::Margin::new(1, 1)), &mut self.textbox2_state);
     }
 
     fn handle_events(&mut self, key: KeyEvent) -> std::io::Result<bool> {

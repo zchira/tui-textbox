@@ -1,6 +1,6 @@
 [package]
 name = "tui-textbox"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["zchira"]
 license = "GPL-3.0"
 description = "ratatui stateful widget"
@@ -15,5 +15,5 @@ edition = "2021"
 default = []
 
 [dependencies]
-ratatui = "0.26.2"
-crossterm = { version = "0.27.0" }
+ratatui = "^0.29.0"
+crossterm = { version = "^0.28.1" }
